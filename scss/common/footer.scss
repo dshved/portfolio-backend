@@ -1,0 +1,197 @@
+.footer {
+  min-width: 320px;
+  position: relative;
+  padding: 26px;
+  height: 150px;
+  background-color: rgba(55, 61, 65, 0.8);
+  &__menu {
+    float: left;
+    width: 40.3333%;
+    padding-left: 27px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    @include phone {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @include phoneL {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @include tablet {
+      width: 60%;
+      border-right: none;
+      margin-top: 15px;
+    }
+  }
+  &__copyright {
+    float: left;
+    width: 34.3333%;
+    padding-left: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    @include phone {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @include phoneL {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @include tablet {
+      float: none;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: none;
+    }
+  }
+  &__contact {
+    float: left;
+    width: 25.3333%;
+    border-right: none;
+    padding-left: 30px;
+    @include tablet {
+      border-right: none;
+      float: right;
+      width: 30%;
+      text-align: right;
+      border-bottom: none;
+      margin-top: 15px;
+    }
+  }
+  &__contact,
+  &__copyright,
+  &__menu {
+    @include phone {
+      float: none;
+      width: 100%;
+      font-size: 15px;
+      text-align: center;
+      border-right: none;
+      padding-left: 0px;
+    }
+    @include phoneL {
+      float: none;
+      width: 100%;
+      font-size: 14px;
+      text-align: center;
+      border-right: none;
+      padding-left: 0px;
+    }
+  }
+  @include clearfix;
+  @include phone {
+    padding: 10px;
+    height: 350px;
+  }
+  @include phoneL {
+    padding: 10px;
+    height: 350px;
+  }
+  @include tablet {
+    padding: 10px;
+    height: 215px;
+  }
+}
+
+.copyright__info {
+  font-family: "RobotoLight";
+  margin-bottom: 8px;
+  @include phone {
+    margin-bottom: 20px;
+  }
+  @include phoneL {
+    margin-bottom: 30px;
+  }
+}
+
+.copyright__about {
+  font-family: "RobotoLight";
+  opacity: .5;
+  @include phone {
+    margin-bottom: 10px;
+  }
+  @include phoneL {
+    margin-bottom: 10px;
+  }
+  @include tablet {
+    margin-bottom: 10px;
+  }
+}
+
+.footer-menu {
+  margin-bottom: 30px;
+  &__list {
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    margin-bottom: 40px;
+    @include phone {
+      margin-bottom: 10px;
+    }
+    @include phoneL {
+      margin-bottom: 10px;
+    }
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+  &__item {
+    display: inline-block;
+    font-size: 16px;
+    padding-right: 40px;
+    &:last-child {
+      padding-right: 5px;
+    }
+    @include phone {
+      padding-right: 20px;
+    }
+    @include phoneL {
+      padding-right: 20px;
+    }
+  }
+  &__link {
+    color: rgba(255, 255, 255, 0.5);
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.social-menu {
+  position: relative;
+  z-index: 3;
+  &__list {
+    @include phone {
+      margin-bottom: 10px;
+    }
+    @include phoneL {
+      margin-bottom: 10px;
+    }
+  }
+  &__item {
+    display: inline-block;
+  }
+  &__link {
+    display: inline-block;
+    margin-right: 25px;
+    fill: rgba(255, 255, 255, 0.6);
+    transition: all .5s;
+    &:hover {
+      fill: rgba(255, 255, 255, 1);
+      transition: all .5s;
+    }
+  }
+}
+
+.footer-contact {
+  font-family: "RobotoLight";
+  color: rgba(255, 255, 255, .5);
+  &__item {
+    margin-bottom: 5px;
+    font-family: "RobotoLight";
+    color: rgba(255, 255, 255, .5);
+  }
+  &__link {
+    font-family: "RobotoLight";
+    color: rgba(255, 255, 255, .5);
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}

@@ -1,0 +1,138 @@
+
+- var title = "Dmitriy Shved - связаться со мной"
+include common/_head
+script(src='https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js')
+body
+  <!--[if lt IE 7]>
+  <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+  <![endif]-->
+  div.wrapper
+    include common/_header
+    section.info-about
+      .user__info
+        .user__img
+          img(src="/img/user.jpg", alt="Это я!")
+        .user__name Дмитрий Швед
+        .user__desc Личный сайт веб-разработчик
+        .info-pic
+          +icon('portfolio_header')
+      a(href="#skill").goto
+        +icon('arrow_down', 26)
+      .box-tranigle
+        svg.traingle(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 1000 85', preserveaspectratio='none')
+          polygon(fill='#efeedf' points='0,0   0,86   500.8,86   500.8,75.5')
+          polygon(fill='#eeebdf' points='1000,0   1000,86   500,86   500,75.5')
+    section.skill#skill
+        .skill__container
+          .skill__left
+            .about-cont
+              .about-header
+                .header-text Обо мне
+                .header-pic
+                  +icon('about_header')
+              .skill__user-pic
+                img(src="/img/me2.jpg", alt="Это я!")
+              .skill__about-me Кто я
+              .skill__about-desc  Я веб разработчик из Cанкт-Петербурга. Мне 26 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          .skill__right
+            .skill__header Чем я могу быть полезен
+            .skill__desc Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+            .skill__items
+              .skill__name Frontend
+              ul.skill__list
+                li.skill__item
+                  figure.chart(data-percent='45')
+                    figcaption
+                      span HTML5
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+                li.skill__item
+                  figure.chart(data-percent='40')
+                    figcaption
+                      span CSS3
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+                li.skill__item
+                  figure.chart(data-percent='70')
+                    figcaption
+                      span JavaScript &jQuery
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+            .skill__items
+              .skill__name Backend
+              ul.skill__list
+                li.skill__item
+                  figure.chart(data-percent='80')
+                    figcaption
+                      span PHP
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+                li.skill__item
+                  figure.chart(data-percent='64')
+                    figcaption
+                      span mySQL
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+                li.skill__item
+                  figure.chart(data-percent='36')
+                    figcaption
+                      span Node.js
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+                li.skill__item
+                  figure.chart(data-percent='95')
+                    figcaption
+                      span Mongo.db
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+            .skill__items
+              .skill__name WorkFlow
+              ul.skill__list
+                li.skill__item
+                  figure.chart(data-percent='55')
+                    figcaption
+                      span Git
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+                li.skill__item
+                  figure.chart(data-percent='64')
+                    figcaption 
+                      span Gulp
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+                li.skill__item
+                  figure.chart(data-percent='47')
+                    figcaption 
+                      span Bower
+                      svg(width='120', height='120')
+                        circle.outer(cx='130', cy='60', r='50', transform='rotate(-90, 95, 95)')
+
+    section.maps
+      .maps__container
+        .maps__contacts
+          .contacts__header Контакты
+          ul.contacts__list
+            li.contacts__item
+              a.contacts__link(href="skype:live:dshved")
+                span
+                  +icon('skype', 26,'contacts__link_fill')
+                  | live:dshved
+            li.contacts__item
+              a.contacts__link(href="mailto:dshved@hotmail.com")
+                span
+                  +icon('envelope', 26,'contacts__link_fill')
+                  | dshved@hotmail.com
+            li.contacts__item
+              a.contacts__link(href="tell:+79816868636")
+                span
+                  +icon('phone', 26,'contacts__link_fill')
+                  | +79816868636
+            li.contacts__item
+              a.contacts__link(href="#mymap")
+                span
+                  +icon('map_marker', 26,'contacts__link_fill')
+                  | Россия, Санкт-Петербург
+        #mymap
+        
+    
+  include common/_footer

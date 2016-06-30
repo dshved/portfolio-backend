@@ -1,5 +1,67 @@
-extends layout
+- var title = "Dmitriy Shved - front-end developer"
+include common/_head
+body
 
-block content
-  h1= title
-  p Welcffffffome to #{title}
+  #page-preloader
+    .loader
+    span.counter 100
+
+
+  
+  <!--[if lt IE 7]>
+  <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+  <![endif]-->
+  div.wrapper.bg
+    header.header
+      a.login-btn(href="#") Авторизоваться
+    .flip
+      .flip__container
+        .flip__front
+          .user__info
+            .user__img
+              img(src="/img/user.jpg", alt="Это я!")
+            .user__name Дмитрий Швед
+            .user__desc Личный сайт веб-разработчика
+            .user__social
+              ul.social__list
+                li.social__item
+                  a.social__link(href="https://vk.com/dshved" target="_blank") #[i.fa.fa-vk.fa-2x(aria-hidden='true')]
+                li.social__item
+                  a.social__link(href="https://github.com/dshved" target="_blank") #[i.fa.fa-github-alt.fa-2x(aria-hidden='true')]
+                li.social__item
+                  a.social__link(href="https://linkedin.com/dshved" target="_blank") #[i.fa.fa-linkedin.fa-2x(aria-hidden='true')]
+            .user__menu
+              ul.menu__list
+                li.list__item
+                  a.item__link(href="works") Мои работы
+                li.list__item
+                  a.item__link(href="about") Обо мне
+                li.list__item
+                  a.item__link(href="blog") Блог
+        .flip__back
+          .card__login
+            .login__header Авторизуйтесь
+            form#auth(action='#' method='POST')
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-user.fa-fw
+                input#user_login.form-control(type='text', placeholder='Логин', name='login')
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-key.fa-fw
+                input#user_pass.form-control(type='password', name='password', placeholder='Пароль')
+              .input-group
+                input#user_human.checkbox(type='checkbox')
+                label(for="user_human") Я человек
+              input-group
+                .robot__text А вы точно не робот?
+                input#human_yes.radio(type="radio" name='human' disabled)
+                label(for="human_yes") Да
+                input#human_no.radio(type="radio" name='human' disabled)
+                label(for="human_no") Не уверен
+              .button-group
+                a.btn.btn-index(href="#")
+                  span На главную
+                button.btn.btn__right(type='submit') Войти
+    .copy
+        span © Дмитрий Швед | создано с любовью в LoftSchool | 2016

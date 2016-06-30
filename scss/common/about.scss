@@ -1,0 +1,502 @@
+$skill-color: #e6ab3d;
+$skill-bg: #dfdcd5;
+$count: 315;
+.info-about {
+  position: relative;
+  // z-index: -1;
+  margin-top: -100px;
+  padding-top: 100px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 650px;
+  height: 100vh;
+  background-image: url("../img/bg.jpg");
+  background-position: left top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .user__info {
+    position: relative;
+    z-index: 2;
+  }
+}
+.skill__item {
+  display: inline-block;
+}
+.info-pic {
+  z-index: 2;
+  width: 50%;
+  height: 50%;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  fill: rgba(#cd8920, .2);
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.header-pic {
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  fill: rgba(#cd8920, .1);
+  svg {
+    @include phone {
+      width: 250px;
+    }
+  }
+}
+
+.box-tranigle {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: -10px auto;
+  @include phone {
+    margin: -5px auto;
+  }
+  @include phoneL {
+    margin: -5px auto;
+  }
+  @include tablet {
+    margin: -5px auto;
+  }
+}
+
+.skill {
+  &__container {
+    background: #efeedf;
+    @include clearfix;
+  }
+  &__left {
+    background: rgb(239, 238, 223);
+    float: left;
+    width: 50%;
+    @include phone {
+      float: none;
+      width: 100%;
+    }
+    @include phoneL {
+      float: none;
+      width: 100%;
+    }
+    @include tablet {
+      float: none;
+      width: 100%;
+    }
+  }
+  &__right {
+    background: rgb(238, 235, 223);
+    float: right;
+    width: 50%;
+    padding: 0 40px;
+    @include phone {
+      float: none;
+      width: 100%;
+      padding: 0 10px;
+    }
+    @include phoneL {
+      float: none;
+      width: 100%;
+      padding: 0 10px;
+    }
+    @include tablet {
+      float: none;
+      width: 100%;
+      padding: 0 50px;
+    }
+  }
+  &__user-pic {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    margin: 0 auto;
+    img {
+      position: relative;
+      top: 50%;
+      min-height: 100%;
+      display: block;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      overflow: hidden;
+    }
+    @include phone {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    @include phoneL {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+  &__header {
+    position: relative;
+    width: 310px;
+    color: #5d5955;
+    margin: 0 auto;
+    font-family: "SansusWebissimoRegular", sans-serif;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    &:before,
+    &:after {
+      position: absolute;
+      margin-top: -7px;
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 25px;
+      height: 14px;
+      opacity: .5;
+      background-image: url('../img/ellipse_b.png');
+    }
+    &:before {
+      top: 50%;
+      left: 0;
+      margin-right: 5px;
+    }
+    &:after {
+      top: 50%;
+      right: 0;
+      margin-left: 5px;
+      transform: rotateY(180deg);
+    }
+    @include phone {
+      width: 210px;
+      font-size: 21px;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+    @include phoneL {
+      width: 210px;
+      font-size: 21px;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+    @include tablet {
+      width: 210px;
+      font-size: 21px;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  &__items {
+    position: relative;
+    margin-bottom: 20px;
+    @include phone {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    @include phoneL {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    @include tablet {
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+  &__name {
+    color: #5d5955;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  &__desc {
+    color: #5d5955;
+    font-family: "RobotoRegular";
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+}
+
+.about-header {
+  position: relative;
+}
+
+.about-cont {
+  padding: 0 70px;
+  @include phone {
+    padding: 0;
+  }
+  @include phoneL {
+    padding: 0;
+  }
+  @include tablet {
+    padding: 0 50px;
+  }
+}
+
+.skill__about-me {
+  margin-top: 20px;
+  position: relative;
+  width: 120px;
+  color: #5d5955;
+  margin: 35px auto;
+  font-family: "SansusWebissimoRegular", sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  text-align: center;
+  &:before,
+  &:after {
+    position: absolute;
+    margin-top: -7px;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 14px;
+    opacity: .5;
+    background-image: url('../img/ellipse_b.png');
+  }
+  &:before {
+    top: 50%;
+    left: 0;
+    margin-right: 5px;
+  }
+  &:after {
+    top: 50%;
+    right: 0;
+    margin-left: 5px;
+    transform: rotateY(180deg);
+  }
+  @include phone {
+    margin-bottom: 20px;
+  }
+  @include phoneL {
+    margin-bottom: 20px;
+  }
+  @include tablet {
+    margin-bottom: 20px;
+  }
+}
+
+.skill__about-desc {
+  color: #5d5955;
+  font-family: "RobotoRegular";
+  font-size: 16px;
+  @include phone {
+    padding: 0 10px 20px;
+  }
+  @include phoneL {
+    padding: 0 10px 20px;
+  }
+  @include tablet {
+    padding: 0 10px 20px;
+  }
+}
+
+.header-text {
+  padding: 20px 0;
+  text-align: center;
+  color: #373d41;
+  font-family: "SansusWebissimoRegular", sans-serif;
+  font-size: 63px;
+  text-transform: uppercase;
+  &:before,
+  &:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 14px;
+    opacity: .5;
+    background-image: url('../img/ellipse_b.png');
+  }
+  &:before {
+    margin-right: 5px;
+  }
+  &:after {
+    margin-left: 5px;
+    transform: rotateY(180deg);
+  }
+  @include phone {
+    font-size: 35px;
+  }
+  @include phoneL {
+    font-size: 35px;
+  }
+  @include tablet {
+    font-size: 35px;
+  }
+}
+
+.chart {
+  position: relative;
+  display: inline-block;
+  color: $skill-color;
+  font-size: 14px;
+  text-align: center;
+}
+
+figure {
+  margin: 0 10px 20px 0;
+  vertical-align: middle;
+}
+
+.chart figcaption {
+  display: flex;
+  width: 120px;
+  height: 120px;
+  border: 20px solid $skill-bg;
+  border-radius: 120px;
+}
+
+.chart figcaption span {
+  margin: auto;
+}
+
+.chart svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.outer {
+  fill: transparent;
+  stroke: $skill-color;
+  stroke-width: 20;
+  stroke-dasharray: $count;
+  transition: stroke-dashoffset 1s;
+}
+
+@for $i from 0 through 100 {
+  $length: $count - ($count/(100/$i));
+  .chart[data-percent='#{$i}'] .outer {
+    stroke-dashoffset: $length;
+    animation: show#{$i} 2s;
+  }
+  @keyframes show#{$i} {
+    from {
+      stroke-dashoffset: $count;
+    }
+    to {
+      stroke-dashoffset: $length;
+    }
+  }
+}
+
+.maps {
+  &__container {
+    position: relative;
+  }
+  &__contacts {
+    z-index: 5;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 380px;
+    height: 280px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    @include phone {
+      width: 320px;
+    }
+    @include phoneL {
+      width: 320px;
+    }
+    @include tablet {
+      width: 320px;
+    }
+  }
+}
+
+.contacts__header {
+  padding: 20px 0;
+  text-align: center;
+  color: rgb(93, 90, 85);
+  font-family: "SansusWebissimoRegular", sans-serif;
+  font-size: 35px;
+  text-transform: uppercase;
+  &:before,
+  &:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 16px;
+    opacity: .5;
+    background-image: url('../img/ellipse_b.png');
+  }
+  &:before {
+    margin-right: 5px;
+  }
+  &:after {
+    margin-left: 5px;
+    transform: rotateY(180deg);
+  }
+}
+
+.contacts__list {
+  margin-left: 40px;
+}
+
+.contacts__item {
+  color: rgb(133, 131, 128);
+  margin-bottom: 20px;
+}
+
+.contacts__link {
+  display: inline-block;
+  color: rgb(133, 131, 128);
+  &:hover {
+    text-decoration: underline;
+  }
+  &_fill {
+    vertical-align: middle;
+    margin-right: 10px;
+    fill: #e6ab3d;
+  }
+  &:link {
+    color: rgb(133, 131, 128);
+  }
+  &:visited {
+    color: rgb(133, 131, 128);
+  }
+}
+
+#mymap {
+  height: 100vh;
+  width: 100%;
+  margin-bottom: -150px;
+  @include phone {
+    height: 1023px;
+    margin-bottom: -350px;
+  }
+  @include phoneL {
+    height: 1023px;
+    margin-bottom: -350px;
+  }
+  @include tablet {
+    height: 1023px;
+    margin-bottom: -215px;
+  }
+}
+
+.gm-style-iw * {
+  display: block;
+  width: 100%;
+}
+
+.gm-style-iw h4,
+.gm-style-iw p {
+  margin: 0;
+  padding: 0;
+}
+
+.gm-style-iw a {
+  color: #4272db;
+}

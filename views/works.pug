@@ -1,0 +1,110 @@
+- var title = "Dmitriy Shved - мои работы"
+include common/_head
+body
+  <!--[if lt IE 7]>
+  <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+  <![endif]-->
+  div.wrapper
+    include common/_header
+    section.info
+      .user__info
+        .user__img
+          img(src="/img/user.jpg", alt="Это я!")
+        .user__name Дмитрий Швед
+        .user__desc Личный сайт веб-разработчик
+        .info-pic_work
+          +icon('portfolio_header')
+      //- a(href="#portfolio").goto
+      //-   +icon('arrow_down', 26)
+    section.slider__works.portfolio#portfolio
+      .portfolio__header Мои работы
+        .portfolio-pic_work
+          +icon('works_header')
+      .slider__left
+        .slider__display
+          .slider__center
+              img(src="/img/slide-1.png", alt="Сайт школы онлайн образования")
+        .slider__info
+          ul.slider__info-list
+            li.slider__info-item.active
+              .portfolio__work-name Сайт школы онлайн образования
+              .portfolio__skill HTML , CSS, JAVASCRIPT
+              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
+            li.slider__info-item
+              .portfolio__work-name Сайт блога
+              .portfolio__skill HTML , SCSS, PHP
+              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
+            li.slider__info-item
+              .portfolio__work-name Сайт образования
+              .portfolio__skill HTML , CSS, mongoDB
+              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
+            li.slider__info-item
+              .portfolio__work-name Сайт школы 
+              .portfolio__skill HTML , CSS, JAVASCRIPT
+              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
+      .slider__right
+        .slider__controls-work
+          .slider.slider__controls-item
+            .slider__prev
+              ul.slider__list
+                li.slider__item
+                  img(src="/img/slide-1.png" alt="")
+                li.slider__item
+                  img(src="/img/slide-2.png" alt="")
+                li.slider__item
+                  img(src="/img/slide-3.png" alt="")
+                li.slider__item.active
+                  img(src="/img/slide-4.png" alt="")
+            .slider__controls
+              a.slider__link-left(href="#")
+          .slider.slider__controls-item
+            .slider__next
+              ul.slider__list
+                li.slider__item
+                  img(src="/img/slide-1.png" alt="")
+                li.slider__item.active
+                  img(src="/img/slide-2.png" alt="")
+                li.slider__item
+                  img(src="/img/slide-3.png" alt="")
+                li.slider__item
+                  img(src="/img/slide-4.png" alt="")
+            .slider__controls
+              a.slider__link-right(href="#")
+    section.about
+      .about__header Что обо мне говорят
+        .about-pic_work
+          +icon('about_header')
+      .about__reviews
+        ul.reviews__list
+          li.reviews__item
+            .reviews__text
+              span #[i.fa.fa-quote-left.fa-3x(aria-hidden='true')] Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+            .reviews__user
+              .user-pic
+                img(src="/img/dima.png", alt="photo")
+              .user-info Ковальчук Дмитрий
+              .user-desc основатель LoftSchool
+          li.reviews__item
+            .reviews__text
+              span #[i.fa.fa-quote-left.fa-3x(aria-hidden='true')] Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей! Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+            .reviews__user
+              .user-pic
+                img(src="/img/zar.png", alt="photo")
+              .user-info Зар Захаров
+              .user-desc главный преподаватель
+      .widget.center-block
+        form#feedback.feedback__form
+          .feedback__header Связаться со мной
+          input#user_name.feedback__input(type='text', name="user_name", placeholder='Имя')
+          input#user_email.feedback__input(type='text', name="user_email", placeholder='Email')
+          textarea#msg_text.feedback__text(name="text", placeholder='Ваше сообщение')
+          .feedback__button
+            button.btn.feedback__btn_left(type='reset') Очистить
+            button.btn.feedback__btn_right(type='submit') Отправить
+        .blur
+          img.bg-blur(src="/img/bg-about.jpg", alt="Фон")
+      img.bg-blur(src="/img/bg-about.jpg", alt="Фон")
+      svg(version='1.1', xmlns='http://www.w3.org/2000/svg')
+        filter#blur
+          fegaussianblur(stddeviation='10')
+  include common/_footer

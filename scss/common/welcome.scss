@@ -1,0 +1,534 @@
+#page-preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  background: url('../img/pre-bg.jpg') top left;
+  background-repeat: repeat-x;
+  background-size: cover;
+  z-index: 9999;
+}
+
+#page-preloader .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  color: #ffffff;
+  font-size: 90px;
+  text-indent: -9999em;
+  overflow: hidden;
+  border-radius: 50%;
+  transform: translateZ(0);
+  animation: load 3s infinite ease;
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+.counter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  min-width: 320px;
+  margin-bottom: -150px;
+  &:after {
+    content: '';
+    display: block;
+    height: 150px;
+    @include phone {
+      height: 350px;
+    }
+    @include phoneL {
+      height: 350px;
+    }
+    @include tablet {
+      height: 215px;
+    }
+  }
+  @include phone {
+    margin-bottom: -350px;
+  }
+  @include phoneL {
+    margin-bottom: -350px;
+  }
+  @include tablet {
+    margin-bottom: -215px;
+  }
+}
+
+.bg {
+  background: url('../img/bg.jpg') top left;
+  background-repeat: repeat-x;
+  background-size: cover;
+  visibility: hidden;
+}
+
+.login-btn {
+  margin-top: 40px;
+  margin-right: 100px;
+  display: inline-block;
+  float: right;
+  width: 180px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: "RobotoMedium", sans-serif;
+  font-size: 16px;
+  &:hover {
+    color: #cb871f;
+    background-color: #fff;
+  }
+  @include phone {
+    margin-right: 0;
+    float: none;
+  }
+  @include phoneL {
+    margin-right: 0;
+    float: none;
+  }
+}
+
+.flip {
+  width: 380px;
+  height: 395px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  perspective: 1000px;
+  animation: flip3D .9s;
+  animation-delay: 4s;
+  transform-origin: 50% 0;
+  @include phone {
+    width: 290px;
+    height: 360px;
+  }
+  @include phoneL {
+    width: 290px;
+    height: 360px;
+  }
+}
+
+.flip.flipping .flip__back {
+  transform: rotateY(0deg);
+}
+
+.flip.flipping .flip__front {
+  transform: rotateY(180deg);
+}
+
+.flip__front,
+.flip__back {
+  transition: 0.9s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  background-color: rgba(215, 191, 155, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 395px;
+  border-radius: 5px;
+  @include phone {
+    width: 290px;
+    height: 360px;
+  }
+  @include phoneL {
+    width: 290px;
+    height: 360px;
+  }
+}
+
+.flip__front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.flip__back {
+  overflow: hidden;
+  transform: rotateY(-180deg);
+}
+
+.card__login {
+  text-align: center;
+}
+
+.user__info {
+  text-align: center;
+  padding-top: 40px;
+  @include phone {
+    padding-top: 20px;
+  }
+  @include phoneL {
+    padding-top: 20px;
+  }
+  .user__img {
+    position: relative;
+    margin: 0 auto;
+    width: 141px;
+    height: 141px;  
+    margin-bottom: 9px;
+    border-radius: 50% 50%;
+    background-clip: padding-box;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .user__name {
+    margin-bottom: 5px;
+    color: #fff;
+    font-family: "RobotoMedium";
+    font-size: 28px;
+  }
+  .user__desc {
+    margin-bottom: 27px;
+    opacity: .8;
+    color: #fff;
+    font-family: "RobotoRegular";
+    font-size: 16px;
+  }
+  .social__list {
+    .social__item {
+      display: inline-block;
+      margin-right: 25px;
+      .social__link {
+        display: block;
+        color: #fff;
+        opacity: .7;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.menu__list {
+  display: table;
+  width: 100%;
+  font-size: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  .list__item {
+    display: table-cell;
+    border-right: 2px solid rgba(222, 227, 231, 0.5);
+    .item__link {
+      padding: 0 10px;
+      height: 45px;
+      line-height: 45px;
+      display: block;
+      background-color: #efab26;
+      color: #fff;
+      font-family: "RobotoRegular";
+      font-size: 16px;
+      @include phone {
+        padding: 0 15px;
+      }
+      @include phoneL {
+        padding: 0 15px;
+      }
+      &:hover {
+        background-color: #d18712;
+      }
+    }
+    &:last-child {
+      border-right: none;
+      .item__link {
+        border-bottom-right-radius: 5px;
+      }
+    }
+    &:first-child .item__link {
+      border-bottom-left-radius: 5px;
+    }
+  }
+}
+
+.login__header {
+  padding: 40px 0;
+  text-align: center;
+  color: #fff;
+  font-family: "SansusWebissimoRegular", sans-serif;
+  font-size: 35px;
+  text-transform: uppercase;
+  &:before,
+  &:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 21px;
+    height: 10px;
+    background-image: url('../img/ellipse.png');
+  }
+  &:before {
+    margin-right: 5px;
+  }
+  &:after {
+    margin-left: 5px;
+    transform: rotateY(180deg);
+  }
+  @include phone {
+    padding: 30px 0px;
+  }
+  @include phoneL {
+    padding: 30px 0px;
+  }
+}
+
+.input-group {
+  position: relative;
+  text-align: center;
+  margin: 0 15px;
+}
+
+.input-group-addon {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  color: #c4cbcd;
+  padding-top: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #efefe9;
+}
+
+.form-control {
+  outline: none;
+  padding-left: 60px;
+  width: 340px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: none;
+  color: #373d41;
+  font-size: 16px;
+  margin-bottom: 20px;
+  @include phone {
+    width: 270px;
+  }
+  @include phoneL {
+    width: 270px;
+  }
+}
+
+.robot__text {
+  opacity: .8;
+  color: #fff;
+  font-family: "RobotoRegular";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+label {
+  opacity: .8;
+  color: #fff;
+  font-family: "RobotoRegular";
+  font-size: 16px;
+}
+
+.btn {
+  width: 190px;
+  height: 45px;
+  background-color: #e7a731;
+  border: none;
+  outline: none;
+  float: left;
+  cursor: pointer;
+  display: inline-block;
+  overflow: auto;
+  white-space: nowrap;
+  color: #fff;
+  font-family: "RobotoRegular";
+  font-size: 16px;
+  &:hover {
+    background-color: #cd8920;
+  }
+  &__left {
+    border-right: 2px solid rgba(221, 227, 231, 0.5);
+    border-bottom-left-radius: 5px;
+  }
+  &__right {
+    border-bottom-right-radius: 5px;
+  }
+  @include phone {
+    width: 145px;
+  }
+  @include phoneL {
+    width: 145px;
+  }
+}
+
+.button-group {
+  position: absolute;
+  bottom: 0;
+  @include phone {}
+  @include phoneL {}
+}
+
+@keyframes flip3D {
+  from {
+    transform: perspective(800px) rotate3d(1, 0, 0, -90deg);
+    animation-timing-function: ease-in;
+    opacity: .1;
+  }
+  to {
+    transform: perspective(800px);
+    opacity: 1;
+  }
+}
+
+.copy {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-family: "RobotoRegular";
+  @include phoneL {
+    font-size: 14px;
+  }
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  padding-bottom: 3px;
+}
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: #e7a731;
+  border-radius: 5px;
+  border: 2px solid #efefef;
+}
+
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '\f00c';
+  position: absolute;
+  top: 6px;
+  left: 3px;
+  font-size: 15px;
+  line-height: 0.8;
+  color: #fff;
+  transition: all .2s;
+  font-family: 'FontAwesome';
+}
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+}
+
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  color: #e7a731;
+  transition: all .2s;
+  width: 13px;
+  height: 13px;
+  background-color: #e7a731;
+  border-radius: 50%;
+}
+
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}

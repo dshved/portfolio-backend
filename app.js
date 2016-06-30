@@ -7,6 +7,11 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var about = require('./routes/about');
+var admin = require('./routes/admin');
+var blog = require('./routes/blog');
+var works = require('./routes/works');
+var auth = require('./routes/auth');
 
 var app = express();
 
@@ -20,10 +25,23 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(require('node-sass-middleware')({
+  src: __dirname + '/scss',
+  dest: __dirname + '/public/css',
+  indentedSyntax: false,
+  debug: true,
+  sourceMap: true,
+  prefix:  '/css'
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/blog', blog);
+app.use('/admin', admin);
+app.use('/works', works);
+app.use('/about', about);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

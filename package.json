@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -11,6 +11,7 @@
     "debug": "~2.2.0",
     "express": "~4.13.4",
     "morgan": "~1.7.0",
+    "node-sass-middleware": "0.8.0",
     "pug": "^2.0.0-beta3",
     "serve-favicon": "~2.3.0"
   },
@@ -21,7 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/dshved/portfolio-backend.git"
   },
-  "author": "Dmitriy Shved",
+  "author": "Dmitry Shved",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dshved/portfolio-backend/issues"

@@ -1,0 +1,95 @@
+- var title = "Панель администрирования"
+include common/_head
+body
+  <!--[if lt IE 7]>
+  <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+  <![endif]-->
+  .wrap
+    header.header__admin
+      .container
+        
+        .header__logout
+          a.header__link(href="/") Вернуться на сайт
+        .header__title Панель администрирования
+    section.panel
+      .container
+        .tabs
+          ul.tabs__controls
+            li.tabs__controls-item.active
+              a(href="#").tabs__control-link Обо мне
+            li.tabs__controls-item
+              a(href="#").tabs__control-link Блог
+            li.tabs__controls-item
+              a(href="#").tabs__control-link Мои работы
+          ul.tabs__list
+            li.tabs__item.active
+              .tabs__title Страница "Обо мне"
+              .skills__container
+                ul.skills__list
+                  li.skills__item
+                    .skills__head Frontend
+                    ul.item-list
+                      li.item
+                        .item-value Html
+                          label.skills__label(for="html") %
+                          input.skills__value(type="text" name="html")
+                      li.item
+                        .item-value CSS
+                          label.skills__label(for="css") %
+                          input.skills__value(type="text" name="css")
+                      li.item
+                        .item-value JavaScript
+                          label.skills__label(for="js") %
+                          input.skills__value(type="text" name="js")
+                  li.skills__item
+                    .skills__head Workflow
+                    ul.item-list
+                      li.item
+                        .item-value Git
+                          label.skills__label(for="git") %
+                          input.skills__value(type="text" name="git")
+                      li.item
+                        .item-value Gulp
+                          label.skills__label(for="gulp") %
+                          input.skills__value(type="text" name="gulp")
+                      li.item
+                        .item-value Bower
+                          label.skills__label(for="bower") %
+                          input.skills__value(type="text" name="bower")
+                  li.skills__item
+                    .skills__head Backend
+                    ul.item-list
+                      li.item
+                        .item-value PHP
+                          label.skills__label(for="php") %
+                          input.skills__value(type="text" name="php")
+                      li.item
+                        .item-value mySQL
+                          label.skills__label(for="mysql") %
+                          input.skills__value(type="text" name="mysql")
+                      li.item
+                        .item-value Node.js
+                          label.skills__label(for="node") %
+                          input.skills__value(type="text" name="node")
+                      li.item
+                        .item-value Mongo.db
+                          label.skills__label(for="mongo") %
+                          input.skills__value(type="text" name="mongo")
+              a.btn__admin#save__skill(href="#") Сохранить
+            li.tabs__item
+              .tabs__title Страница "Блог"
+              .tabs__desc Добавить запись
+              input.blog__name(type="text" placeholder="Название" name="name")
+              input.blog__date(type="text" placeholder="Дата" onfocus="(this.type='date')" name="date")
+              textarea.blog__text(name="text", placeholder='Ваше сообщение')
+              a.btn__admin#add__article(href="#") Добавить
+            li.tabs__item
+              .tabs__title Страница "Мои работы"
+              .tabs__desc Добавить работу
+              input.works__name(type="text" placeholder="Название проекта" name="name")
+              input.works__skill(type="text" placeholder="Технологии" name="skill")
+              input(type="file" name="file" id="file" class="inputfile")
+              label(for="file") Загрузить картинку
+
+              a.btn__admin#add__work(href="#") Добавить
+
