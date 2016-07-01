@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+var Skill = require('../models/skills').Skill;
+
 router.get('/', function(req, res, next) {
-  res.render('about', { title: 'ABOUT' });
+  Skill.find().then(function(skills){
+    res.render('about', { data: skills });
+  });
+  
 });
 
 module.exports = router;

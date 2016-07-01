@@ -17,7 +17,8 @@ var blog = require('./routes/blog');
 var works = require('./routes/works');
 var auth = require('./routes/auth');
 var save = require('./routes/save');
-var posts = require('./routes/posts');
+var skill = require('./routes/skill');
+
 
 var app = express();
 
@@ -51,7 +52,8 @@ app.use('/works', works);
 app.use('/about', about);
 app.use('/auth', auth);
 app.use('/save', save);
-app.use('/posts', posts);
+app.use('/skill', skill);
+
 
 
 // catch 404 and forward to error handler

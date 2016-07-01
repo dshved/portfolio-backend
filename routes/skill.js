@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var Post = require('../models/post').Post;
+var Skill = require('../models/skills').Skill;
 
 router.post('/', function(req, res, next) {
-  var post = new Post(req.body);
+  var post = new Skill(req.body);
   post.save();
   res.end();
 });

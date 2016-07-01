@@ -27,31 +27,14 @@ body
         sidebar.sidebar
           .sidebar__inner
             ul.sidebar__list
-              li.sidebar__items
-                a.sidebar__link(href="#sass") Полная совместимость с CSS
-              li.sidebar__items
-                a.sidebar__link(href="#hack") Без чего не обходится ни один интернет-магазин?
-              li.sidebar__items
-                a.sidebar__link(href="#gulp") Самый необходимый набор Gulp плагинов
-              li.sidebar__items
-                a.sidebar__link(href="#jade")  Почему я выбрал Jade
+              each posts, index in data
+                li.sidebar__items
+                  a.sidebar__link(href= "#post-"+index)= posts.title
         .blog__content
-          article.article#article
-            .article__header#sass Полная совместимость с CSS
-            .article__date 22 ноября 2016
-            .article__text.
-              Sass полностью совместим со всеми версиями CSS. Мы уделяем серьезное внимание 
-          article.article
-            .article__header#hack Без чего не обходится ни один интернет-магазин?
-            .article__date 22 ноября 2016
-            .article__text.
-              Когда перед владельцем бизнеса возникает задача продать что-либо, используя ресурсы 
-          article.article
-            .article__header#gulp Самый необходимый набор Gulp плагинов
-            .article__date 15 мая 2016
-            .article__text Таким образом начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке направлений прогрессивного развития. 
-          article.article
-            .article__header#jade Почему я выбрал Jade
-            .article__date 22 ноября 2016
-            .article__text Таким образом начало повседневной работы по формированию позиции
+          each posts, index in data
+            article.article
+              .article__header(id= "post-"+index)= posts.title
+              .article__date= posts.date
+              .article__text= posts.text
+
   include common/_footer
