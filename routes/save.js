@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/portfolio');
+
+var Post = require('../models/post').Post;
+
+
 
 // var Post = mongoose.model('Post', {
 //   title: String,

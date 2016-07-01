@@ -1,9 +1,40 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/css/app.css')
-  body
-    ul.block
-      each val in data
-        li= val.title
+- var title = "Dmitriy Shved - мой блог"
+include common/_head
+script(type='text/javascript').
+  hljs.initHighlightingOnLoad();
+body
+  <!--[if lt IE 7]>
+  <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+  <![endif]-->
+  div.wrapper
+    include common/_header
+    section.info-blog
+      .user-info
+        .user__img
+          img(src="/img/user.jpg", alt="Это я!")
+        .blog-header Блог
+        .blog-desc Статьи которые я написал
+        .blog-pic
+          +icon('blog_header')
+      a(href="#blog").goto
+        +icon('arrow_down', 26)
+      .box-tranigle
+        svg.traingle(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 1000 85', preserveaspectratio='none')
+          polygon(fill='#eeebdf' points='0,0   0,86   500.8,86   500.8,75.5')
+          polygon(fill='#eeebdf' points='1000,0   1000,86   500,86   500,75.5')
+    section.blog#blog
+      .blog__inner
+        sidebar.sidebar
+          .sidebar__inner
+            ul.sidebar__list
+              each posts, index in data
+                li.sidebar__items
+                  a.sidebar__link(href= "#post-"+index)= posts.title
+        .blog__content
+          each posts, index in data
+            article.article
+              .article__header(id= "post-"+index)= posts.title
+              .article__date= posts.date
+              .article__text= posts.text
+
+  include common/_footer
