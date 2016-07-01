@@ -12,6 +12,8 @@ var admin = require('./routes/admin');
 var blog = require('./routes/blog');
 var works = require('./routes/works');
 var auth = require('./routes/auth');
+var save = require('./routes/save');
+var posts = require('./routes/posts');
 
 var app = express();
 
@@ -25,6 +27,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(require('node-sass-middleware')({
   src: __dirname + '/scss',
   dest: __dirname + '/public/css',
@@ -33,6 +36,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true,
   prefix:  '/css'
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -42,6 +46,9 @@ app.use('/admin', admin);
 app.use('/works', works);
 app.use('/about', about);
 app.use('/auth', auth);
+app.use('/save', save);
+app.use('/posts', posts);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

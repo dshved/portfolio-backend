@@ -422,3 +422,18 @@ var Slider = (function() {
 })();
 
 Slider.init();
+
+
+
+
+add__article.addEventListener('click', function() {
+  var data = {
+    title: blog_name.value,
+    date: blog_date.value,
+    text: blog_text.value
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/save');
+  xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
+  xhr.send(JSON.stringify(data));
+});

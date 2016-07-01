@@ -79,10 +79,12 @@ body
             li.tabs__item
               .tabs__title Страница "Блог"
               .tabs__desc Добавить запись
-              input.blog__name(type="text" placeholder="Название" name="name")
-              input.blog__date(type="text" placeholder="Дата" onfocus="(this.type='date')" name="date")
-              textarea.blog__text(name="text", placeholder='Ваше сообщение')
-              a.btn__admin#add__article(href="#") Добавить
+              form(action="#" method="post")
+                input.blog__name#blog_name(type="text" placeholder="Название" name="name")
+                input.blog__date#blog_date(type="text" placeholder="Дата" onfocus="(this.type='date')" name="date")
+                textarea.blog__text#blog_text(name="text", placeholder='Ваше сообщение')
+                a.btn__admin#add__article(href="#") Добавить
+
             li.tabs__item
               .tabs__title Страница "Мои работы"
               .tabs__desc Добавить работу
