@@ -83,15 +83,17 @@ body
                 input.blog__name#blog_name(type="text" placeholder="Название" name="name")
                 input.blog__date#blog_date(type="text" placeholder="Дата" onfocus="(this.type='date')" name="date")
                 textarea.blog__text#blog_text(name="text", placeholder='Ваше сообщение')
-                a.btn__admin#add__article(href="#") Добавить
+                input.btn__admin#add__article(type="submit" value="Добавить пост")
+                //a.btn__admin#add__article(href="#") Добавить
 
             li.tabs__item
               .tabs__title Страница "Мои работы"
               .tabs__desc Добавить работу
-              input.works__name(type="text" placeholder="Название проекта" name="name")
-              input.works__skill(type="text" placeholder="Технологии" name="skill")
-              input(type="file" name="file" id="file" class="inputfile")
-              label(for="file") Загрузить картинку
-
-              a.btn__admin#add__work(href="#") Добавить
+              form(action="/admin/saveWork" method="post" enctype="multipart/form-data")
+                input.works__name#work_name(type="text" placeholder="Название проекта" name="name")
+                input.works__skill#work_skill(type="text" placeholder="Технологии" name="skill")
+                input(type="file" name="file" id="images" class="inputfile")
+                label(for="images") Загрузить картинку
+                input.btn__admin#add__work(type="submit" value="Добавить работу")
+                //a.btn__admin#add__work(href="#") Добавить
 

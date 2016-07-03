@@ -456,3 +456,16 @@ add__article.addEventListener('click', function(e) {
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
   xhr.send(JSON.stringify(data));
 });
+
+// add__work.addEventListener('click', function(e) {
+//   e.preventDefault();
+//   var data = {
+//     name: work_name.value,
+//     skill: work_skill.value,
+//     image: file.value
+//   }
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('POST', '/admin/saveWork');
+//   xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
+//   xhr.send(JSON.stringify(data));
+// });

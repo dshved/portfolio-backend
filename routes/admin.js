@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var multiparty = require('multiparty');
+var fs = require('fs');
 
 var Skill = require('../models/skills').Skill;
 var Post = require('../models/post').Post;
@@ -46,5 +48,21 @@ router.post('/savePost', function(req, res, next) {
   res.end();
 });
 
+router.post('/saveWork', function(req, res, next) {
+	var form = new multiparty.Form();
+	form.parse(req, function(err, fields, files) {
+		var img = files.file[0];
+
+		fs.readFile(img.path, function(err, data){
+			var path = './public/upload/' + img.originalFilename;
+
+			fs.writeFile(path, data, function(err){
+				if(err) console.log(error);
+				res.send("Картинка загружена");
+			})
+		})
+  });
+
+});
 
 module.exports = router;
