@@ -3053,7 +3053,8 @@ label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+  margin-left: 10px; }
 
 [type="radio"]:not(:checked) + label:before,
 [type="radio"]:checked + label:before {
@@ -5579,6 +5580,20 @@ figure {
     color: #5d5955; }
     .sidebar__link:visited {
       color: #5d5955; }
+    .sidebar__link.active {
+      color: #cc881f;
+      transition: all .25s; }
+    .sidebar__link.active:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      content: '';
+      width: 2px;
+      height: 100%;
+      margin-right: -10px;
+      background-color: #cc881f;
+      transition: all .25s; }
     .sidebar__link:hover {
       color: #cc881f;
       transition: all .25s; }

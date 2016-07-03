@@ -1,3 +1,4 @@
+//Настрока карты на страницу about
 google.maps.event.addDomListener(window, 'load', init);
 var map;
 

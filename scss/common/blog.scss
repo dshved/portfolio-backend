@@ -263,6 +263,22 @@
     &:visited {
       color: #5d5955;
     }
+    &.active {
+      color: #cc881f;
+      transition: all .25s;
+    }
+    &.active:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      content: '';
+      width: 2px;
+      height: 100%;
+      margin-right: -10px;
+      background-color: #cc881f;
+      transition: all .25s;
+    }
     &:hover {
       color: #cc881f;
       transition: all .25s;

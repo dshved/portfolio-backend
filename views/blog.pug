@@ -29,7 +29,7 @@ body
             ul.sidebar__list
               each posts, index in data
                 li.sidebar__items
-                  a.sidebar__link(href= "#post-"+index)= posts.title
+                  a.sidebar__link(id= "link-"+ index href= "#post-"+index)= posts.title
         .blog__content
           each posts, index in data
             article.article
