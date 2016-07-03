@@ -423,7 +423,8 @@ var Slider = (function() {
 
 Slider.init();
 
-save__skill.addEventListener('click', function() {
+save__skill.addEventListener('click', function(e) {
+  e.preventDefault();
   var data = {
     html: skill_html.value,
     css: skill_css.value,
@@ -437,20 +438,21 @@ save__skill.addEventListener('click', function() {
     mongodb: skill_mongodb.value,
   }
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/skill');
+  xhr.open('POST', '/admin/saveSkill');
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
   xhr.send(JSON.stringify(data));
 });
 
 
-add__article.addEventListener('click', function() {
+add__article.addEventListener('click', function(e) {
+  e.preventDefault();
   var data = {
     title: blog_name.value,
     date: blog_date.value,
     text: blog_text.value
   }
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/save');
+  xhr.open('POST', '/admin/savePost');
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
   xhr.send(JSON.stringify(data));
 });

@@ -10,14 +10,13 @@ mongoose.connect('mongodb://localhost/portfolio');
 
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var about = require('./routes/about');
 var admin = require('./routes/admin');
 var blog = require('./routes/blog');
 var works = require('./routes/works');
 var auth = require('./routes/auth');
-var save = require('./routes/save');
-var skill = require('./routes/skill');
+
+
 
 
 var app = express();
@@ -45,14 +44,13 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/blog', blog);
 app.use('/admin', admin);
 app.use('/works', works);
 app.use('/about', about);
 app.use('/auth', auth);
-app.use('/save', save);
-app.use('/skill', skill);
+
+
 
 
 
