@@ -4,8 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 var mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/portfolio');
 
 
@@ -31,17 +34,23 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'fosdf37dhDHD3sd9LJDo',
+  saveUninitialized: false,
+  resave: false,
+  store: new MongoStore({ url: 'mongodb://localhost/portfolio' })
+}));
 app.use(require('node-sass-middleware')({
   src: __dirname + '/scss',
   dest: __dirname + '/public/css',
   indentedSyntax: false,
   debug: true,
   sourceMap: true,
-  prefix:  '/css'
+  prefix: '/css'
 }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 app.use('/blog', blog);
@@ -51,7 +60,11 @@ app.use('/about', about);
 app.use('/auth', auth);
 
 
-
+// Logout endpoint
+app.get('/logout', function(req, res) {
+  req.session.destroy();
+  res.redirect('/');
+});
 
 
 // catch 404 and forward to error handler
