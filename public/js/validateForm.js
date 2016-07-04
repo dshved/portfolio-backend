@@ -6,7 +6,7 @@ var validateForm = (function() {
   }
 
   function _setUpListners() {
-   // $('#auth').submit(_auth);
+    //$('#auth').submit(_auth);
     $('#feedback').submit(_sendMessage);
     $('#user_human').click(_check);
     $('body').on('click', '.error__close', _closeMsg);
@@ -132,19 +132,19 @@ var validateForm = (function() {
       result = _validateAuthForm();
 
     if (result === true) {
-      $.ajax({
-        url: '/auth',
-        type: 'POST',
-        dataType: 'json',
-        data: {login: 'admin', password: 'admin'},
-        success: function(data) {
-          console.log('ok');
-        }
-      })
+      // $.ajax({
+      //   url: '/auth',
+      //   type: 'POST',
+      //   dataType: 'json',
+      //   data: {login: 'admin', password: 'admin'},
+      //   success: function(data) {
+      //     console.log('ok');
+      //   }
+      // })
       
     
-      // location.href = 'admin';
-      // document.getElementById("auth").reset();
+       // location.href = 'admin';
+       // document.getElementById("auth").reset();
     } else {
       _errorMessage(result['message']);
 
