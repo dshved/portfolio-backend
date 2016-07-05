@@ -32,15 +32,39 @@ add__article.addEventListener('click', function(e) {
   xhr.send(JSON.stringify(data));
 });
 
-// add__work.addEventListener('click', function(e) {
-//   e.preventDefault();
-//   var data = {
-//     name: work_name.value,
-//     skill: work_skill.value,
-//     image: file.value
-//   }
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('POST', '/admin/saveWork');
-//   xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
-//   xhr.send(JSON.stringify(data));
-// });
+//add__work.addEventListener('click', function(e) {
+
+  // e.preventDefault();
+  // var data = {
+  //   name: work_name.value,
+  //   skill: work_skill.value,
+  //   images: images.value
+  // }
+  // console.log(data);
+  // var xhr = new XMLHttpRequest();
+  // xhr.open('POST', '/admin/saveWork');
+  // xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
+  // xhr.send(JSON.stringify(data));
+
+  // var form = document.forms.saveWork;
+
+  // var formData = new FormData(form);
+
+  // var xhr = new XMLHttpRequest();
+  // xhr.open("POST", "/admin/saveWork");
+
+  // xhr.onreadystatechange = function() {
+  //   if (xhr.readyState == 4) {
+  //     if (xhr.status == 200) {
+  //       data = xhr.responseText;
+  //       if (data == "true") {
+  //         $("body").replaceWith("<p>Принято!<p>");
+  //       } else {
+  //         $("body").replaceWith("<p >Ошибка! Обновите страницу...<p>");
+  //       }
+  //     }
+  //   }
+  // };
+
+  // xhr.send(formData);
+//});

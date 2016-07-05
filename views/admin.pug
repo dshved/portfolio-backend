@@ -93,7 +93,7 @@ body
               form(action="/admin/saveWork" method="post" enctype="multipart/form-data")
                 input.works__name#work_name(type="text" placeholder="Название проекта" name="name")
                 input.works__skill#work_skill(type="text" placeholder="Технологии" name="skill")
-                input(type="file" name="file" id="images" class="inputfile")
+                input(type="file" name="file" id="file" class="inputfile")
                 label(for="images") Загрузить картинку
                 input.btn__admin#add__work(type="submit" value="Добавить работу")
                 //a.btn__admin#add__work(href="#") Добавить

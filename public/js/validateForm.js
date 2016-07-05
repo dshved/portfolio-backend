@@ -126,11 +126,19 @@ var validateForm = (function() {
   }
 
   function _auth(e) {
-    //e.preventDefault();
+    e.preventDefault();
     var form = $('#auth'),
       result = _validateAuthForm();
 
     if (result === true) {
+      var xhr = new XMLHttpRequest();
+      var data = {login: 'admin', password: 'admin'};
+      xhr.open('POST', '/auth');
+      xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
+      xhr.onload = function() {
+        console.log(xhr.respotse);
+      }
+      xhr.send(JSON.stringify(data));
       //location.href = 'admin';
       // document.getElementById("auth").reset();
     } else {

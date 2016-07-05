@@ -67,15 +67,15 @@ router.post('/savePost', function(req, res, next) {
 });
 
 router.post('/saveWork', function(req, res, next) {
+  console.log(req);
 	var form = new multiparty.Form();
 	form.parse(req, function(err, fields, files) {
 		var img = files.file[0];
-
 		fs.readFile(img.path, function(err, data){
 			var path = './public/upload/' + img.originalFilename;
 
 			fs.writeFile(path, data, function(err){
-				if(err) console.log(error);
+				if(err) console.log(err);
 				res.send("Картинка загружена");
 			})
 		})
