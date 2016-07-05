@@ -6,7 +6,7 @@ var validateForm = (function() {
   }
 
   function _setUpListners() {
-    //$('#auth').submit(_auth);
+    $('#auth').submit(_auth);
     $('#feedback').submit(_sendMessage);
     $('#user_human').click(_check);
     $('body').on('click', '.error__close', _closeMsg);
@@ -84,13 +84,12 @@ var validateForm = (function() {
       obj = {};
     var validEmail = isEmail(user_email.val());
 
-    if (replaceSpace(user_name.val()) || replaceSpace(user_email.val()) || replaceSpace(msg_text.val()))
-    {
+    if (replaceSpace(user_name.val()) || replaceSpace(user_email.val()) || replaceSpace(msg_text.val())) {
       obj.valid = false;
       obj.message = "Вы заполнили не все поля!";
       return obj;
-    } 
-    if (!validEmail)  {
+    }
+    if (!validEmail) {
       obj.valid = false;
       obj.message = "Введите корректный Email!";
       return obj;
@@ -127,24 +126,13 @@ var validateForm = (function() {
   }
 
   function _auth(e) {
-    e.preventDefault();
+    //e.preventDefault();
     var form = $('#auth'),
       result = _validateAuthForm();
 
     if (result === true) {
-      // $.ajax({
-      //   url: '/auth',
-      //   type: 'POST',
-      //   dataType: 'json',
-      //   data: {login: 'admin', password: 'admin'},
-      //   success: function(data) {
-      //     console.log('ok');
-      //   }
-      // })
-      
-    
-       // location.href = 'admin';
-       // document.getElementById("auth").reset();
+      //location.href = 'admin';
+      // document.getElementById("auth").reset();
     } else {
       _errorMessage(result['message']);
 
