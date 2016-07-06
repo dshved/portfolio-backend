@@ -3,7 +3,6 @@
   min-height: 100%;
   min-width: 320px;
   background-color: #eee;
-
 }
 
 .header__admin {
@@ -12,11 +11,9 @@
   background-color: #e5a730;
   @include clearfix;
   @include phone {
-
     text-align: center;
   }
   @include phoneL {
-
     text-align: center;
   }
 }
@@ -51,14 +48,12 @@
     float: none;
     line-height: 1;
     margin-right: 0;
-    
   }
   @include phoneL {
     margin: 14px 0;
     float: none;
     line-height: 1;
     margin-right: 0;
-    
   }
 }
 
@@ -248,10 +243,10 @@
   border-radius: 5px;
   background-color: #e5a730;
   padding: 12px 20px;
-  outline: none;
   border: none;
-  cursor: pointer;
+  outline: none;
 }
+
 .works__pic {
   display: block;
 }
@@ -266,29 +261,75 @@
 }
 
 .inputfile + label {
-    position: relative;
-    color: #e5a730;
-    font-family: "RobotoMedium";
-    font-size: 16px;
+  position: relative;
+  color: #e5a730;
+  font-family: "RobotoMedium";
+  font-size: 16px;
+  display: block;
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+  padding-left: 45px;
+  margin-bottom: 20px;
+  &:before {
+    position: absolute;
+    left: 0;
+    content: '';
+    background-image: url("../img/load-pic.png");
+    opacity: .7;
     display: block;
-    width: 300px;
-    height: 40px;
-    cursor: pointer;
-    padding-left: 45px;
-    margin-bottom: 20px;
-    &:before {
-      position: absolute;
-      left: 0;
-      content: '';
-      background-image: url("../img/load-pic.png");
-      opacity: .7;
-      display: block;
-      width: 35px;
-      height: 34px;
-    }
+    width: 35px;
+    height: 34px;
+  }
 }
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-    color: #ffa800;
+  color: #ffa800;
+}
+
+.page404 {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &__title {
+    font-size: 36px;
+    color: black;
+    text-align: center;
+    float: left;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @include phone {
+      font-size: 28px;
+    }
+    @include phoneL {
+      font-size: 28px;
+    }
+  }
+  &__img {
+    display: block;
+    width: 50%;
+    height: 100%;
+    float: right;
+    overflow: hidden;
+    position: relative;
+    img {
+      max-width: 90%;
+      max-height: 90%;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
 }

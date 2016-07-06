@@ -1,13 +1,3 @@
-//Смещение background
-// $(function() {
-//   var x = 0;
-//   setInterval(function() {
-//     x -= 1;
-//     $('.wrapper').css('background-position', x + 'px 0');
-//   }, 50);
-// })
-
-
 $(document).ready(function() {
   //Spinner
   setTimeout(function() {
@@ -26,4 +16,13 @@ $(document).ready(function() {
       }
     });
   });
+
+  // Смещение background
+  $(function() {
+    var x = 0;
+    setInterval(function() {
+      x -= 1;
+      $('.wrapper').css('background-position', x + 'px 0');
+    }, 100);
+  })
 });

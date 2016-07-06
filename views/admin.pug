@@ -1,5 +1,6 @@
 - var title = "Панель администрирования"
 include common/_head
+script(src="/js/ajax.js" defer)
 body
   <!--[if lt IE 7]>
   <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
@@ -80,7 +81,7 @@ body
             li.tabs__item
               .tabs__title Страница "Блог"
               .tabs__desc Добавить запись
-              form(action="#" method="post")
+              form#blog_add(action="#" method="post")
                 input.blog__name#blog_name(type="text" placeholder="Название" name="name")
                 input.blog__date#blog_date(type="text" placeholder="Дата" onfocus="(this.type='date')" name="date")
                 textarea.blog__text#blog_text(name="text", placeholder='Ваше сообщение')

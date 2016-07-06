@@ -2260,6 +2260,7 @@
   font-weight: normal; }
 
 .footer {
+  color: #fff;
   min-width: 320px;
   position: relative;
   padding: 26px;
@@ -2671,6 +2672,7 @@
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em; } }
 
 .counter {
+  color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2989,6 +2991,7 @@ label {
     opacity: 1; } }
 
 .copy {
+  color: #fff;
   position: absolute;
   bottom: 10px;
   width: 100%;
@@ -3020,8 +3023,7 @@ label {
   height: 20px;
   border: none;
   background: #e7a731;
-  border-radius: 5px;
-  border: 2px solid #efefef; }
+  border-radius: 2px; }
 
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
@@ -3062,8 +3064,8 @@ label {
   position: absolute;
   left: 0;
   top: 2px;
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
   border: none;
   background: #fff;
   border-radius: 50%; }
@@ -3072,12 +3074,12 @@ label {
 [type="radio"]:checked + label:after {
   content: '';
   position: absolute;
-  top: 6px;
-  left: 4px;
+  top: 7px;
+  left: 5px;
   color: #e7a731;
   transition: all .2s;
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   background-color: #e7a731;
   border-radius: 50%; }
 
@@ -3201,24 +3203,7 @@ label {
   position: relative;
   background-color: #faf8f0;
   height: 100vh;
-  min-height: 650px;
-  /*   &__right {
-  height: 100%;
-  text-align: center;
-  float: right;
-  width: 50%;
-  background-color: #ebe5db;
-  @include phone {
-    float: none;
-    width: 100%;
-    height: 100%;
-  }
-  @include phoneL {
-    float: none;
-    width: 100%;
-    height: 100%;
-  }
-} */ }
+  min-height: 650px; }
   .portfolio__name {
     height: 100%;
     background: #eee;
@@ -3378,15 +3363,27 @@ label {
         margin-bottom: 10px; } }
   @media (max-width: 376px) {
     .portfolio {
-      height: auto; } }
+      height: auto;
+      min-height: auto; } }
   @media (min-width: 376px) and (max-width: 425px) {
     .portfolio {
-      height: auto; } }
+      height: auto;
+      min-height: auto; } }
   .portfolio:after, .portfolio:before {
     display: table;
     content: ''; }
   .portfolio:after {
     clear: both; }
+
+@media (max-width: 376px) {
+  .slider__center {
+    position: relative;
+    height: 300px; } }
+
+@media (min-width: 376px) and (max-width: 425px) {
+  .slider__center {
+    position: relative;
+    height: 300px; } }
 
 .slider__link-left {
   display: block;
@@ -5350,6 +5347,7 @@ figure {
   color: #4272db; }
 
 .info-blog {
+  color: #fff;
   position: relative;
   margin-top: -100px;
   padding-top: 110px;
@@ -6056,9 +6054,8 @@ figure {
   border-radius: 5px;
   background-color: #e5a730;
   padding: 12px 20px;
-  outline: none;
   border: none;
-  cursor: pointer; }
+  outline: none; }
 
 .works__pic {
   display: block; }
@@ -6096,6 +6093,48 @@ figure {
 .inputfile + label:hover {
   color: #ffa800; }
 
+.page404 {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .page404__title {
+    font-size: 36px;
+    color: black;
+    text-align: center;
+    float: left;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+    @media (max-width: 376px) {
+      .page404__title {
+        font-size: 28px; } }
+    @media (min-width: 376px) and (max-width: 425px) {
+      .page404__title {
+        font-size: 28px; } }
+  .page404__img {
+    display: block;
+    width: 50%;
+    height: 100%;
+    float: right;
+    overflow: hidden;
+    position: relative; }
+    .page404__img img {
+      max-width: 90%;
+      max-height: 90%;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto; }
+
 html {
   box-sizing: border-box; }
 
@@ -6109,7 +6148,6 @@ body {
   height: 100%; }
 
 body {
-  color: #fff;
   font-family: "RobotoMedium", Arial, sans-serif;
   font-size: 16px; }
 

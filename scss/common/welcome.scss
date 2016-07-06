@@ -54,6 +54,7 @@
 }
 
 .counter {
+  color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -421,6 +422,7 @@ label {
 }
 
 .copy {
+  color: #fff;
   position: absolute;
   bottom: 10px;
   width: 100%;
@@ -455,8 +457,7 @@ label {
   height: 20px;
   border: none;
   background: #e7a731;
-  border-radius: 5px;
-  border: 2px solid #efefef;
+  border-radius: 2px;
 }
 
 [type="checkbox"]:not(:checked) + label:after,
@@ -503,8 +504,8 @@ label {
   position: absolute;
   left: 0;
   top: 2px;
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
   border: none;
   background: #fff;
   border-radius: 50%;
@@ -514,12 +515,12 @@ label {
 [type="radio"]:checked + label:after {
   content: '';
   position: absolute;
-  top: 6px;
-  left: 4px;
+  top: 7px;
+  left: 5px;
   color: #e7a731;
   transition: all .2s;
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   background-color: #e7a731;
   border-radius: 50%;
 }

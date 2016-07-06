@@ -6,7 +6,7 @@ var validateForm = (function() {
   }
 
   function _setUpListners() {
-    $('#auth').submit(_auth);
+    //$('#auth').submit(_auth);
     $('#feedback').submit(_sendMessage);
     $('#user_human').click(_check);
     $('body').on('click', '.error__close', _closeMsg);
@@ -131,14 +131,14 @@ var validateForm = (function() {
       result = _validateAuthForm();
 
     if (result === true) {
-      var xhr = new XMLHttpRequest();
-      var data = {login: 'admin', password: 'admin'};
-      xhr.open('POST', '/auth');
-      xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
-      xhr.onload = function() {
-        console.log(xhr.respotse);
-      }
-      xhr.send(JSON.stringify(data));
+      // var xhr = new XMLHttpRequest();
+      // var data = {login: 'admin', password: 'admin'};
+      // xhr.open('POST', '/auth');
+      // xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
+      // xhr.onload = function() {
+      //   console.log(xhr.respotse);
+      // }
+      // xhr.send(JSON.stringify(data));
       //location.href = 'admin';
       // document.getElementById("auth").reset();
     } else {

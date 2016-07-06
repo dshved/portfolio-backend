@@ -30,6 +30,7 @@ add__article.addEventListener('click', function(e) {
   xhr.open('POST', '/admin/savePost');
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
   xhr.send(JSON.stringify(data));
+  document.getElementById("blog_add").reset();
 });
 
 //add__work.addEventListener('click', function(e) {

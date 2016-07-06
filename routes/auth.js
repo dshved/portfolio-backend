@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.render('auth', { title: 'AUTH' });
+
+var auth = function(req, res, next) {
+  if (req.session && req.session.login === "admin" && req.session.password)
+    return next();
+  else
+    return res.render('auth');
+};
+
+router.get('/', auth, function(req, res) {
+  if (auth) res.redirect('./admin');
 });
+
 
 router.post('/', function(req, res) {
 
