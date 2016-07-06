@@ -1,6 +1,7 @@
 - var title = "Панель администрирования"
 include common/_head
 script(src="/js/ajax.js" defer)
+script(src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js" dever)
 body
   <!--[if lt IE 7]>
   <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
@@ -86,16 +87,14 @@ body
                 input.blog__date#blog_date(type="text" placeholder="Дата" onfocus="(this.type='date')" name="date")
                 textarea.blog__text#blog_text(name="text", placeholder='Ваше сообщение')
                 input.btn__admin#add__article(type="submit" value="Добавить пост")
-                //a.btn__admin#add__article(href="#") Добавить
 
             li.tabs__item
               .tabs__title Страница "Мои работы"
               .tabs__desc Добавить работу
-              form(action="/admin/saveWork" method="post" enctype="multipart/form-data")
+              form#saveWork(action="/admin/saveWork" method="post" enctype="multipart/form-data")
                 input.works__name#work_name(type="text" placeholder="Название проекта" name="name")
                 input.works__skill#work_skill(type="text" placeholder="Технологии" name="skill")
+                input.works__skill#work_link(type="text" placeholder="Ссылка на проект" name="link")
                 input(type="file" name="file" id="file" class="inputfile")
-                label(for="images") Загрузить картинку
+                label(for="file") Загрузить картинку
                 input.btn__admin#add__work(type="submit" value="Добавить работу")
-                //a.btn__admin#add__work(href="#") Добавить
-

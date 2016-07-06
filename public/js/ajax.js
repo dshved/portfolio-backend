@@ -1,3 +1,14 @@
+function _errorMessage(message) {
+  var msg = '<div class="error">' +
+    '<div class="error__container">' +
+    '<a href="#" class="error__close">' +
+    '<i class="fa fa-times-circle" aria-hidden="true"></i></a>' +
+    '<div class="error__message">' + message + '</div></div></div>';
+  $('body').prepend(msg);
+  $('.error').css('top', $('body').scrollTop() + 'px');
+  $('body').css('overflow', 'hidden');
+};
+
 save__skill.addEventListener('click', function(e) {
   e.preventDefault();
   var data = {
@@ -33,39 +44,15 @@ add__article.addEventListener('click', function(e) {
   document.getElementById("blog_add").reset();
 });
 
-//add__work.addEventListener('click', function(e) {
 
-  // e.preventDefault();
-  // var data = {
-  //   name: work_name.value,
-  //   skill: work_skill.value,
-  //   images: images.value
-  // }
-  // console.log(data);
-  // var xhr = new XMLHttpRequest();
-  // xhr.open('POST', '/admin/saveWork');
-  // xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
-  // xhr.send(JSON.stringify(data));
-
-  // var form = document.forms.saveWork;
-
-  // var formData = new FormData(form);
-
-  // var xhr = new XMLHttpRequest();
-  // xhr.open("POST", "/admin/saveWork");
-
-  // xhr.onreadystatechange = function() {
-  //   if (xhr.readyState == 4) {
-  //     if (xhr.status == 200) {
-  //       data = xhr.responseText;
-  //       if (data == "true") {
-  //         $("body").replaceWith("<p>Принято!<p>");
-  //       } else {
-  //         $("body").replaceWith("<p >Ошибка! Обновите страницу...<p>");
-  //       }
-  //     }
-  //   }
-  // };
-
-  // xhr.send(formData);
-//});
+$('#saveWork').submit(function() {
+  $(this).ajaxSubmit({
+    error: function(xhr) {
+      status('Error: ' + xhr.status);
+    },
+    success: function(response) {
+      _errorMessage(response);
+    }
+  });
+  return false;
+});
