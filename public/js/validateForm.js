@@ -18,6 +18,15 @@ var validateForm = (function() {
     var result = _validateMessageForm();
 
     if (result === true) {
+      var data = {
+        username: user_name.value,
+        useremail: user_email.value,
+        text: msg_text.value
+      }
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/works/sendEmail');
+      xhr.setRequestHeader('Content-type', 'application/json; charset=utf8');
+      xhr.send(JSON.stringify(data));
       _errorMessage('Ваше сообщение успешно отправлено!');
       document.getElementById("feedback").reset();
     } else {
