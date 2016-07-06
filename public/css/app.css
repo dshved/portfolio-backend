@@ -3326,6 +3326,7 @@ label {
         font-size: 21px;
         margin-bottom: 10px; } }
   .portfolio__skill {
+    text-transform: uppercase;
     height: 50px;
     line-height: 50px;
     color: #cc881f;
