@@ -1,4 +1,5 @@
 - var title = "Dmitriy Shved - мои работы"
+- var count = data.length
 include common/_head
 body
   <!--[if lt IE 7]>
@@ -23,51 +24,45 @@ body
       .slider__left
         .slider__display
           .slider__center
-              img(src="/img/slide-1.png", alt="Сайт школы онлайн образования")
+              img(src= data[0].url_img, alt= data[0].title)
         .slider__info
           ul.slider__info-list
-            li.slider__info-item.active
-              .portfolio__work-name Сайт школы онлайн образования
-              .portfolio__skill HTML , CSS, JAVASCRIPT
-              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
-            li.slider__info-item
-              .portfolio__work-name Сайт блога
-              .portfolio__skill HTML , SCSS, PHP
-              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
-            li.slider__info-item
-              .portfolio__work-name Сайт образования
-              .portfolio__skill HTML , CSS, mongoDB
-              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
-            li.slider__info-item
-              .portfolio__work-name Сайт школы 
-              .portfolio__skill HTML , CSS, JAVASCRIPT
-              a.portfolio__link(href="http://loftschool.com" target="_blank") #[i.fa.fa-link] Посмотреть сайт
+            each works, index in data
+              if (index == 0)
+                li.slider__info-item.active
+                  .portfolio__work-name= works.title
+                  .portfolio__skill= works.stack
+                  a.portfolio__link(href= works.url_work target="_blank") #[i.fa.fa-link] Посмотреть сайт
+              else 
+                li.slider__info-item
+                  .portfolio__work-name= works.title
+                  .portfolio__skill= works.stack
+                  a.portfolio__link(href= works.url_work target="_blank") #[i.fa.fa-link] Посмотреть сайт
+        
       .slider__right
         .slider__controls-work
           .slider.slider__controls-item
             .slider__prev
               ul.slider__list
-                li.slider__item
-                  img(src="/img/slide-1.png" alt="")
-                li.slider__item
-                  img(src="/img/slide-2.png" alt="")
-                li.slider__item
-                  img(src="/img/slide-3.png" alt="")
-                li.slider__item.active
-                  img(src="/img/slide-4.png" alt="")
+                each works, index in data
+                  if (index == (count-1))
+                    li.slider__item.active
+                      img(src= works.url_img alt= works.title)
+                  else 
+                    li.slider__item
+                      img(src= works.url_img alt= works.title)
             .slider__controls
               a.slider__link-left(href="#")
           .slider.slider__controls-item
             .slider__next
               ul.slider__list
-                li.slider__item
-                  img(src="/img/slide-1.png" alt="")
-                li.slider__item.active
-                  img(src="/img/slide-2.png" alt="")
-                li.slider__item
-                  img(src="/img/slide-3.png" alt="")
-                li.slider__item
-                  img(src="/img/slide-4.png" alt="")
+                each works, index in data
+                  if (index == 1)
+                    li.slider__item.active
+                      img(src= works.url_img alt= works.title)
+                  else 
+                    li.slider__item
+                      img(src= works.url_img alt= works.title)
             .slider__controls
               a.slider__link-right(href="#")
     section.about

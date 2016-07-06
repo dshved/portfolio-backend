@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 
+var Work = require('../models/work').Work;
+
 var smtpConfig = {
   host: 'hostde5.fornex.org',
   port: 465,
@@ -16,7 +18,11 @@ var transporter = nodemailer.createTransport(smtpConfig);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('works', { title: 'WORKS' });
+  Work.find().then(function(works){
+    res.render('works', { data: works });
+  });
+
+  //res.render('works', { title: 'WORKS' });
 });
 
 router.post('/sendEmail', function(req, res, next) {

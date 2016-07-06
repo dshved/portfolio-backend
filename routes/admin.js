@@ -77,7 +77,10 @@ router.post('/saveWork', function(req, res, next) {
     var img = files.file[0];
     console.log(fields);
     fs.readFile(img.path, function(err, data) {
-      var path = './public/upload/' + img.originalFilename;
+      var radom = Math.random().toString(36);
+      var randomName = radom.substring(2, radom.length);
+
+      var path = './public/upload/' + randomName + '-'+ img.originalFilename;
 
       fs.writeFile(path, data, function(err) {
         if (err) console.log(err);
@@ -85,7 +88,7 @@ router.post('/saveWork', function(req, res, next) {
           title: fields.name[0],
           stack: fields.skill[0],
           url_work: fields.link[0],
-          url_img: '/upload/' + img.originalFilename
+          url_img: '/upload/' + randomName + '-'+img.originalFilename
         }
         var work = new Work(data);
         work.save();
