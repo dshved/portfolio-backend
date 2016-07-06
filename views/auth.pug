@@ -4,6 +4,11 @@ body
   <!--[if lt IE 7]>
   <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
   <![endif]-->
+  .error(style= data.display)
+    .error__container
+      a(href="#").error__close
+        i(class="fa fa-times-circle" aria-hidden="true")
+      .error__message= data.msg
   div.wrapper.bg-auth
     .card-auth
       .card__login
@@ -29,6 +34,6 @@ body
           .button-group
             a.btn.btn-index_auth(href="/")
               span На главную
-            button.btn.btn__right(type='submit') Войти
+            button#btn_auth.btn.btn__right(type='submit') Войти
   .copy
     span © Дмитрий Швед | создано с любовью в LoftSchool | 2016
