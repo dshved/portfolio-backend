@@ -16,17 +16,38 @@ var Flip = (function() {
 
   var _showLogin = function(e) {
     e.preventDefault();
-    $('.flip').toggleClass('flipping');
-    $('.login-btn').css({
-      'visibility': 'hidden'
-    });
+    $.ajax({
+      url: './login',
+      type: 'GET',
+      success: function(res) {
+        if (res == 'not ok') {
+          $('.flip').toggleClass('flipping');
+          $('.login-btn').css({
+            'visibility': 'hidden'
+          });
+        } else {
+          window.location.href = '/admin';
+        }
+
+      }
+    })
   };
 
   var _showInfo = function(e) {
     e.preventDefault();
-    $('.flip').removeClass('flipping');
-    $('.login-btn').css({
-      'visibility': 'visible'
+    $.ajax({
+      url: '/login',
+      type: 'GET',
+      success: function(res) {
+        if (res == 'not ok') {
+          $('.flip').toggleClass('flipping');
+          $('.login-btn').css({
+            'visibility': 'hidden'
+          });
+        } else {
+          window.location.href = '/admin';
+        };
+      }
     });
   };
 

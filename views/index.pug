@@ -39,7 +39,7 @@ body
         .flip__back
           .card__login
             .login__header Авторизуйтесь
-            form#auth(action='#' method='POST')
+            form#auth(action='/auth' method='POST')
               .input-group
                 span.input-group-addon
                   i.fa.fa-user.fa-fw
@@ -60,6 +60,6 @@ body
               .button-group
                 a.btn.btn-index(href="#")
                   span На главную
-                button.btn.btn__right(type='submit') Войти
+                button#btn_auth.btn.btn__right(type='submit') Войти
     .copy
         span © Дмитрий Швед | создано с любовью в LoftSchool | 2016
