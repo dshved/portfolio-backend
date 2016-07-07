@@ -120,9 +120,23 @@ router.post('/saveWork', function(req, res, next) {
         res.send("Запись успешно добавлена!");
       })
     })
-
   });
+});
 
+router.post('/removePost', function(req, res, next) {
+  var id = req.body['id'];
+  Post.findByIdAndRemove(id, function(err) {
+    if (err) throw err;
+    res.send('Запись успешно удалена');
+  });
+});
+
+router.post('/removeWork', function(req, res, next) {
+  var id = req.body['id'];
+  Work.findByIdAndRemove(id, function(err) {
+    if (err) throw err;
+    res.send('Работа успешно удалена');
+  });
 });
 
 module.exports = router;

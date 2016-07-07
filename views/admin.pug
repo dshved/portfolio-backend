@@ -103,13 +103,13 @@ body
             li.tabs__item
               .tabs__title Удаление
               .tabs__desc Выбрать статью из блога
-                select.works__name
+                select#post_list.works__name
                   each post in posts
-                    option(value= post.title)= post.title
-                a.btn__admin(href="#") Удалить статью
+                    option(value= post.title data-id= post._id)= post.title
+                a#delPost.btn__admin(href="#") Удалить статью
                 
               .tabs__desc Выбрать работу
-                select.works__name
+                select#work_list.works__name
                   each work in works
-                    option(value= work.title)= work.title
-                a.btn__admin(href="#") Удалить работу
+                    option(value= work.title data-id= work._id)= work.title
+                a#delWork.btn__admin(href="#") Удалить работу

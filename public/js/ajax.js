@@ -52,7 +52,37 @@ $('#saveWork').submit(function() {
     },
     success: function(response) {
       _errorMessage(response);
+      document.getElementById("saveWork").reset();
     }
   });
   return false;
 });
+
+
+$('#delPost').on('click', function(e){
+  e.preventDefault();
+  var id = $( "#post_list option:selected" ).data('id');
+  $.ajax({
+    url: '/admin/removePost',
+    type: 'post',
+    data: {id: id.substring(1, id.length - 1 )},
+    success: function(res) {
+      _errorMessage(res);
+      $( "#post_list option:selected" ).remove();
+    }
+  });
+});
+
+$('#delWork').on('click', function(e){
+  e.preventDefault();
+  var id  = $( "#work_list option:selected" ).data('id');
+  $.ajax({
+    url: '/admin/removeWork',
+    type: 'post',
+    data: {id: id.substring(1, id.length - 1 )},
+    success: function(res) {
+      _errorMessage(res);
+      $( "#work_list option:selected" ).remove();
+    }
+  });
+})
