@@ -24,6 +24,8 @@ body
               a(href="#").tabs__control-link Блог
             li.tabs__controls-item
               a(href="#").tabs__control-link Мои работы
+            li.tabs__controls-item
+              a(href="#").tabs__control-link Удаление
           ul.tabs__list
             li.tabs__item.active
               .tabs__title Страница "Обо мне"
@@ -98,3 +100,16 @@ body
                 input(type="file" name="file" id="file" class="inputfile")
                 label(for="file") Загрузить картинку
                 input.btn__admin#add__work(type="submit" value="Добавить работу")
+            li.tabs__item
+              .tabs__title Удаление
+              .tabs__desc Выбрать статью из блога
+                select.works__name
+                  each post in posts
+                    option(value= post.title)= post.title
+                a.btn__admin(href="#") Удалить статью
+                
+              .tabs__desc Выбрать работу
+                select.works__name
+                  each work in works
+                    option(value= work.title)= work.title
+                a.btn__admin(href="#") Удалить работу

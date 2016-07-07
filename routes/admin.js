@@ -2,6 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var router = express.Router();
 var multiparty = require('multiparty');
+var async = require('async');
 var fs = require('fs');
 
 
@@ -17,27 +18,51 @@ var auth = function(req, res, next) {
 };
 
 router.get('/', auth, function(req, res) {
-  if (auth) {
-    Skill.find().then(function(skills) {
-      if (skills.length < 1) {
-        var data = {
-          html: 0,
-          css: 0,
-          js: 0,
-          git: 0,
-          gulp: 0,
-          bower: 0,
-          php: 0,
-          mysql: 0,
-          nodejs: 0,
-          mongodb: 0
-        };
-        res.render('admin', { data: data });
-      } else {
-        res.render('admin', { data: skills[0] });
-      }
+  var data = {};
 
+  if (auth) {
+
+    async.parallel([
+      function(cb) {
+        Post.find({}, function(err, posts) {
+          data['posts'] = posts;
+          cb();
+        });
+      },
+      function(cb) {
+        Work.find({}, function(err, works) {
+          data['works'] = works;
+          cb();
+        });
+      },
+      function(cb) {
+        Skill.find({}, function(err, skills) {
+          if (skills.length < 1) {
+            var value = {
+              html: 0,
+              css: 0,
+              js: 0,
+              git: 0,
+              gulp: 0,
+              bower: 0,
+              php: 0,
+              mysql: 0,
+              nodejs: 0,
+              mongodb: 0
+            };
+            data['data'] = value;
+          } else {
+            data['data'] = skills[0];
+          }
+          cb();
+        });
+      }
+    ], function(err) {
+      if (err) return next(err);
+
+      res.render('admin', data);
     });
+
   } else {
     res.redirect('./auth');
   }
@@ -80,7 +105,7 @@ router.post('/saveWork', function(req, res, next) {
       var radom = Math.random().toString(36);
       var randomName = radom.substring(2, radom.length);
 
-      var path = './public/upload/' + randomName + '-'+ img.originalFilename;
+      var path = './public/upload/' + randomName + '-' + img.originalFilename;
 
       fs.writeFile(path, data, function(err) {
         if (err) console.log(err);
@@ -88,7 +113,7 @@ router.post('/saveWork', function(req, res, next) {
           title: fields.name[0],
           stack: fields.skill[0],
           url_work: fields.link[0],
-          url_img: '/upload/' + randomName + '-'+img.originalFilename
+          url_img: '/upload/' + randomName + '-' + img.originalFilename
         }
         var work = new Work(data);
         work.save();
