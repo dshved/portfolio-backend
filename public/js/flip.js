@@ -42,7 +42,7 @@ var Flip = (function() {
         if (res == 'not ok') {
           $('.flip').toggleClass('flipping');
           $('.login-btn').css({
-            'visibility': 'hidden'
+            'visibility': 'visible'
           });
         } else {
           window.location.href = '/admin';
